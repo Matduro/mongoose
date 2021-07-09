@@ -17,20 +17,27 @@ const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true, // this makes it so the name is required
+    maxlength: 20,
   },
   price: {
     type: Number,
     required: true,
+    min: 0,
   },
   onSale: {
     type: Boolean,
     default: false,
   },
+  categories: [String],
 });
 
 const Product = mongoose.model("Product", productSchema);
 
-const bike = new Product({ name: "Mountain Bike", price: 599 });
+const bike = new Product({
+  name: "Mountain Bike",
+  price: 599,
+  categories: ["Cycling", "Mountain Grade"],
+});
 bike
   .save()
   .then((data) => {
