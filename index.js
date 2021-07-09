@@ -27,7 +27,7 @@ const Movie = mongoose.model("Movie", movieSchema);
 //   title: "Amadeus",
 //   year: 1986,
 //   score: 9.2,
-//   rating: "R",
+//   rating: "R"
 // });
 
 // with this method, you don't need to hit save.
