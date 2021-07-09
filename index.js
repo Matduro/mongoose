@@ -21,8 +21,8 @@ const movieSchema = new mongoose.Schema({
 
 // to be able to make new instances of your movie class.
 // "Movie" must be singular and capitalized. Mongoose will lower case the word and pluralize it.
-// when you call an instance of a model like below, you need to hit save to inset in the db.
 const Movie = mongoose.model("Movie", movieSchema);
+// when you call an instance of a model like below, you need to hit save to inset in the db.
 // const amadeus = new Movie({
 //   title: "Amadeus",
 //   year: 1986,
@@ -30,7 +30,7 @@ const Movie = mongoose.model("Movie", movieSchema);
 //   rating: "R",
 // });
 
-// with this method, you don't need to hit save
+// with this method, you don't need to hit save.
 Movie.insertMany([
   { title: "Amelie", year: 2001, score: 8.3, rating: "R" },
   { title: "Alien", year: 1979, score: 8.1, rating: "R" },
