@@ -38,6 +38,8 @@ Movie.insertMany([
   { title: "Stand by Me", year: 1986, score: 8.6, rating: "R" },
   { title: "Moonrise Kingdom", year: 2012, score: 7.3, rating: "PG-13" },
 ]).then((data) => {
-  console.log("IT WORKED, THE 5 PIECES OF DATA HAVE BEEN ADDED TO THE DB");
+  console.log(
+    "IT WORKED, THE 5 PIECES OF DATA HAVE BEEN ADDED TO THE DATABASE!!"
+  );
   console.log(data);
 });
