@@ -36,7 +36,7 @@ const Product = mongoose.model("Product", productSchema);
 const bike = new Product({
   name: "Mountain Bike",
   price: 599,
-  categories: ["Cycling", "Mountain Grade"],
+  categories: ["Cycling", "Mountain Grade", "Made in Canada"],
 });
 bike
   .save()
