@@ -56,6 +56,11 @@ productSchema.methods.toggleOnSale = function () {
   return this.save();
 };
 
+productSchema.methods.addCategory = function (newCat) {
+  this.categories.push(newCat);
+  return this.save();
+};
+
 const Product = mongoose.model("Product", productSchema);
 
 const bike = new Product({
@@ -99,6 +104,8 @@ const findProduct = async () => {
 
   console.log(foundProduct);
   await foundProduct.toggleOnSale();
+  console.log(foundProduct);
+  await foundProduct.addCategory("Outdoors");
   console.log(foundProduct);
 };
 
