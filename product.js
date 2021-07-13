@@ -48,6 +48,7 @@ const bike = new Product({
   price: 599,
   categories: ["Cycling", "Mountain Grade", "Made in Canada"],
 });
+
 bike
   .save()
   .then((data) => {
@@ -59,4 +60,16 @@ bike
     console.log(err.errors.name.properties.message);
   });
 
-const test = "test";
+Product.findOneAndUpdate(
+  { name: "Mountain Bike" },
+  { price: 799 },
+  { new: true, runValidators: true }
+)
+  .then((data) => {
+    console.log("The price update to $799 worked!");
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log("Oh no, we have an error trying to updat the price");
+    console.log(err);
+  });
