@@ -22,5 +22,3 @@ personSchema.virtual("fullname").get(function () {
 });
 
 const Person = mongoose.model("Person", personSchema);
-
-const tammy = new Person({ first: "Tammy", last: "Chow" });
