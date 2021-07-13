@@ -16,13 +16,13 @@ mongoose
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true, // this makes it so the name is required
+    required: true, // this makes it so the name is required.
     maxlength: 20,
   },
   price: {
     type: Number,
     required: true,
-    min: 0,
+    min: [0, "Price must be positive ya dodo!"], // this is a custom message for validations.
   },
   onSale: {
     type: Boolean,
@@ -38,6 +38,10 @@ const productSchema = new mongoose.Schema({
       type: Number,
       default: 0,
     },
+  },
+  size: {
+    type: String,
+    enum: ["S", "M", "L"],
   },
 });
 
