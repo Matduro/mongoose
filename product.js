@@ -58,3 +58,5 @@ bike
     console.log("OH NO ERROR!");
     console.log(err.errors.name.properties.message);
   });
+
+const test = "test";
