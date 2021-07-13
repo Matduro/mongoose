@@ -61,6 +61,11 @@ productSchema.methods.addCategory = function (newCat) {
   return this.save();
 };
 
+//static methods update the model, and "this" refers to the model as well.
+productSchema.statics.fireSale = function () {
+  return this.updateMany({}, { onSale: true, price: 0 });
+};
+
 const Product = mongoose.model("Product", productSchema);
 
 const bike = new Product({
@@ -109,4 +114,6 @@ const findProduct = async () => {
   console.log(foundProduct);
 };
 
-findProduct();
+// findProduct();
+
+Product.fireSale().then((res) => console.log(res));
