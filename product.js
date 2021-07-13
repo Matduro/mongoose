@@ -46,9 +46,14 @@ const productSchema = new mongoose.Schema({
 });
 
 // the value of 'this' changes with fat arrow functions, so in the following case we want to use traditional function.
-productSchema.methods.greet = function () {
-  console.log("Bonjour!");
-  console.log(`- ${this.name}`);
+// productSchema.methods.greet = function () {
+//   console.log("Bonjour!");
+//   console.log(`- ${this.name}`);
+// };
+
+productSchema.methods.toggleOnSale = function () {
+  this.onSale = !this.onSale;
+  return this.save();
 };
 
 const Product = mongoose.model("Product", productSchema);
@@ -85,9 +90,16 @@ Product.findOneAndUpdate(
   });
 
 const findProduct = async () => {
-  console.log("WQKFQVBLUCILQDBLQBQOUD1!!");
   const foundProduct = await Product.findOne({ name: "Mountain Bike" });
-  foundProduct.greet();
+  //foundProduct.greet();
+
+  // Use method instead so it can be reused
+  // foundProduct.onSale = !foundProduct.onSale;
+  //foundProduct.save();
+
+  console.log(foundProduct);
+  await foundProduct.toggleOnSale();
+  console.log(foundProduct);
 };
 
 findProduct();
