@@ -29,6 +29,16 @@ const productSchema = new mongoose.Schema({
     default: false,
   },
   categories: [String],
+  qty: {
+    online: {
+      type: Number,
+      default: 0,
+    },
+    inStore: {
+      type: Number,
+      default: 0,
+    },
+  },
 });
 
 const Product = mongoose.model("Product", productSchema);
